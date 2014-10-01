@@ -1,0 +1,22 @@
+<div class="task-wrapper" data-ng-controller="TaskController">
+  <div class="task-loading" data-ng-show="loading">
+    Loading...
+  </div>
+  <div class="task-loaded" data-ng-hide="loading">
+    <p class="info">
+      <span class="type">Name:</span> {{ task.name }}
+    </p>
+    <p class="info">
+      <span class="type">Class:</span> {{ task.classID }}
+    </p>
+    <p class="info">
+      <span class="type">Types:</span> {{ task.typeIDs }}
+    </p>
+    <p class="info">
+      <span class="type">ID:</span> {{ task._id }}
+    </p>
+  </div>
+  <div class="back" data-ng-click="back()">
+    &lt;&nbsp;Back
+  </div>
+</div>

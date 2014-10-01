@@ -1,0 +1,160 @@
+// Home
+
+@-webkit-keyframes rotating {
+  from{
+    -webkit-transform: rotate(0deg);
+  }
+  to{
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.home-wrapper {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+  .loading {
+    height: 100%;
+    width: 100%;
+    background-color: $background1;
+
+    .animation {
+      @include vertical-align();
+      height: 100px;
+      width: 100px;
+      opacity: 0.7;
+      margin: 0 auto;
+      -webkit-animation: rotating 1s linear infinite;
+      -moz-animation: rotating 1s linear infinite;
+      -o-animation: rotating 1s linear infinite;
+      animation: rotating 1s linear infinite;
+
+      .line {
+        position: absolute;
+        width: 50%;
+        height: 6px;
+        right: 0;
+        top: 47px;
+        background: darken($background1, 20%);
+      }
+    }
+  }
+
+  .types {
+    @include span(5/12);
+    height: 100%;
+    background-color: $background1;
+    padding: 40px;
+    text-align: center;
+
+    p {
+      @include font-size(16);
+      text-align: center;
+      margin-bottom: 30px;
+      font-family: 'Roboto Slab', Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .filterbox {
+      width: 90%;
+      max-width: 300px;
+      outline: none;
+      border: 2px solid darken($background1, 20%);
+      @include border-radius(2px);
+      @include font-size(8);
+      padding: 5px 8px;
+      margin-bottom: 5px;
+    }
+
+    .button-group {
+      width: 95%;
+      max-width: 300px;
+      text-align: center;
+      margin: 0 auto 25px auto;
+      .btn {
+        display: inline-block;
+        @include border-radius(1px);
+        @include font-size(7);
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        padding: 6px 20px;
+        width: 40%;
+        background-color: darken($background1, 20%);
+        color: #ffffff;
+        cursor: pointer;
+        -webkit-transition: background-color 0.2s;
+        -moz-transition: background-color 0.2s;
+        -o-transition: background-color 0.2s;
+        transition: background-color 0.2s;
+
+        .letterspace {
+          letter-spacing: 3px;
+        }
+
+        &:hover {
+          background-color: darken($background1, 10%);
+        }
+      }
+    }
+
+    .type-list {
+      width: 95%;
+      max-width: 300px;
+      margin: 0 auto;
+      text-align: left;
+      padding: 8px;
+
+      .type {
+        margin-bottom: 20px;
+        @include font-size(9);
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .classes {
+    @include span(7/12);
+    height: 100%;
+    overflow-y: auto;
+    background-color: $background2;
+    padding: 40px;
+
+    p {
+      @include font-size(16);
+      text-align: center;
+      margin-bottom: 30px;
+      font-family: 'Roboto Slab', Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      color: #333333;
+    }
+
+    .class {
+      @include font-size(11);
+      font-family: 'Roboto', Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      margin-bottom: 40px;
+
+      .class-name {
+        margin-bottom: 15px;
+      }
+
+      .task {
+        @include font-size(8);
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        margin-left: 20px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }
+}

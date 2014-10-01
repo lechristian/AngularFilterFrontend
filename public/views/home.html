@@ -1,0 +1,35 @@
+<div class="home-wrapper" data-ng-controller="HomeController">
+  <div class="loading" data-ng-show="loading">
+    <div class="animation">
+      <div class="line"></div>
+    </div>
+  </div>
+
+  <div class="types" data-ng-hide="loading">
+    <p>Types</p>
+    <input class="filterbox" type="text" data-ng-model="whichtask" placeholder="Search">
+    <div class="button-group">
+      <div class="btn" data-ng-click="taskfilter()"><span class="letterspace">Filte</span><span>r</span></div>
+      <div class="btn" data-ng-click="clearfilter()"><span class="letterspace">Clea</span><span>r</span></div>
+    </div>
+    <div class="type-list">
+      <div class="type" data-ng-repeat="type in (filteredTypes = (repeat(data.types) | filter:{name:whichtask}))">
+        {{ type.name }}
+      </div>
+    </div>
+  </div>
+
+  <div class="classes" data-ng-hide="loading" data-ui-view>
+    <p>Classes</p>
+    <div class="class" data-ng-class="{hidden: (repeat(data.tasks) | filter:{typeIDs:typefilter, classID:class._id}).length == 0}" data-ng-repeat="class in repeat(data.classes) | filter:myFilter">
+      <div class="class-name">
+        {{ class.name }}
+      </div>
+      <div class="task" data-ng-repeat="task in (filteredTasks = (repeat(data.tasks) | filter:{typeIDs:typefilter, classID:class._id}))">
+        <div data-ui-sref="home.task({id: task._id})">
+          {{ task.name }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
